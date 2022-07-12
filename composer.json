@@ -1,0 +1,43 @@
+{
+    "name": "farajzadeh/gems-counter",
+    "description": "This package counts the number of gems in your game",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2|^7.3|^8.0|^8.1",
+        "illuminate/filesystem": "^6.0|^7.0|^8.0|^9.0",
+        "illuminate/collections": "^6.0|^7.0|^8.0|^9.0",
+        "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+        "illuminate/database": "^6.0|^7.0|^8.0|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0|^7.0",
+        "phpunit/phpunit": "^9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Farajzadeh\\GemsCounter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Farajzadeh\\GemsCounter\\Test\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ehsan Farajzadeh",
+            "email": "ehsan.farajzadeh@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Farajzadeh\\GemsCounter\\GemsCounterServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "dev"
+}

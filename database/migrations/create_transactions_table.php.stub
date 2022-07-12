@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateTransactionsTables extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $tableNames = config('gems-counter.table_names');
+        $columnNames = config('gems-counter.column_names');
+
+        Schema::create($tableNames['transactions'], function (Blueprint $table) use ($columnNames) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger($columnNames['user_foreign_key']);
+            $table->bigInteger('last_count');
+            $table->bigInteger('change_amount');
+            $table->string('tag');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        $tableNames = config('gems-counter.table_names');
+
+        Schema::drop($tableNames['transactions']);
+    }
+}
